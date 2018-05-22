@@ -17,7 +17,10 @@ const User = (props) => {
             ? (<ScaleLoader />)
             : (<div className = 'User' >
                 <img  className = 'userImage' src = {IMG_URL} />
-                 <p> Witaj {props.user.display_name} </p>
+                <div className = 'userData'>
+                    <p className = 'userName'> Witaj {props.user.display_name} </p>
+                    <p className = 'userProduct'>{props.user.product}</p>
+               </div>
                </div>)
         }
       

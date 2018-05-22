@@ -3,6 +3,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { fetchUser } from "../../actions/userActions";
 import User from "../User";
+import Search from '../Search'
 import './style.css'
 
 
@@ -23,6 +24,7 @@ class Dashboard extends Component {
       <div className = 'Dashboard'>
         <div className = 'Header'>
             <User user = {this.props.user}/>
+            <Search />
         </div>
       </div>
     )
