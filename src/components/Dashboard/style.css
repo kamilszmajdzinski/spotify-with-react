@@ -1,3 +1,14 @@
-.dashboard {
-    
+.Dashboard {
+    height: 100%;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
 }
+
+.Header {
+height: 5em;
+width: 100%;
+background-color: #181818;
+color: white;
+display: flex;
+}
+

@@ -20,8 +20,10 @@ class Dashboard extends Component {
     
   render() {
     return (
-      <div className = 'dashboard'>
-        <User user = {this.props.user}/>
+      <div className = 'Dashboard'>
+        <div className = 'Header'>
+            <User user = {this.props.user}/>
+        </div>
       </div>
     )
   }
