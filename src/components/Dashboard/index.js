@@ -1,0 +1,45 @@
+import React, { Component } from 'react'
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { fetchUser } from "../../actions/userActions";
+import User from "../User";
+import './style.css'
+
+
+class Dashboard extends Component {
+    componentDidMount = (props) => {
+
+      this.props.fetchUser(this.props.token);
+      if (this.props.userPending) {
+        console.log('ładuje');
+      }  else console.log('zaladowanamo');
+      
+      
+        
+    }
+    
+  render() {
+    return (
+      <div className = 'dashboard'>
+        <User user = {this.props.user}/>
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = state => {
+    return {
+        token: state.tokenReducer.token,
+        user: state.userReducer.user,
+        userPending: state.userReducer.userPending
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({
+        fetchUser
+    }, dispatch)
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

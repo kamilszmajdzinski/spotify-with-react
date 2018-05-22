@@ -1,0 +1,34 @@
+.Login{
+    margin: auto auto;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.Login p {
+    color: white;
+    font-size: 1.5em;
+    margin: 0 auto;
+}
+
+.SpotifyLogoSpan {
+    font-weight: bold;
+}
+
+.Login a {
+    text-decoration: none;
+    color: white;
+    background-color: #1DB954;
+    padding: 1em;
+    border-radius: 2em;
+    display: block;
+}
+
+.Login img {
+    width: 15em;
+    margin: 2em 0;
+}
+
+.LoginContainer{
+    width: 100%;
+    display: flex;
+}
