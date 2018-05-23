@@ -19,8 +19,11 @@ export const fetchPlaylistError = () => {
 }
 
 export const fetchPlaylist = (userId, accessToken) => {
+    //1167184935
+    console.log(userId + ' moje :1167184935');
+    const API_URL = `https://api.spotify.com/v1/users/${userId}`
     return dispatch => {
-        const request = new Request(`https://api.spotify.com/v1/users/${userId}/playlists`,{
+        const request = new Request(API_URL + '/playlists',{
             headers: new Headers({
                 'Authorization': 'Bearer ' + accessToken
             })
@@ -35,6 +38,7 @@ export const fetchPlaylist = (userId, accessToken) => {
             return res.json()
         }).then(res => {
 
+            console.log(res.items);
             
             dispatch(fetchPlaylistSuccess(res.items)) 
         }).catch(err => {

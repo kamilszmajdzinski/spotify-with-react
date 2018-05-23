@@ -12,8 +12,9 @@ renderPlaylist = playlist => {
 }
 
 render() {
-    
-    this.props.fetchPlaylist(this.props.user.id, this.props.token)
+    if (this.props.user) {
+        this.props.fetchPlaylist(this.props.user.id, this.props.token)
+    }
     
 
 

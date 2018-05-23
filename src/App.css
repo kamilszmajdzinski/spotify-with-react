@@ -9,3 +9,7 @@
   width: 100%;
   display: flex;
 }
+
+::-webkit-scrollbar-track {
+  background: #2B2D30;
+}
