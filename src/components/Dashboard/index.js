@@ -26,7 +26,7 @@ class Dashboard extends Component {
         </div>
         <div className = 'Content'>
             <div className = 'leftSideSection'>
-                <Playlists user = {this.props.user} token = {this.props.token}/>
+                <Playlists id = {this.props.user} token = {this.props.token}/>
             </div>
             <div className = 'mainSection'>
             </div>

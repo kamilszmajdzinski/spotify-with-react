@@ -5,27 +5,28 @@ import { connect } from "react-redux";
 import { ScaleLoader } from "react-spinners";
 import './style.css'
 
-class Playlists extends Component {
-
-    componentDidMount = (props) =>  {
-            console.log(this.props);
+const Playlists = (props) => {
+    console.log(props);
+    
+    if (props.user) {
+        fetchPlaylist(props.user.id, props.token)
+    }
+         
             
             //fetchPlaylist(props.user.id, props.token)
-    }
+    
     
 
-
-  render() {
     return (
       <div >
-        {!this.props.playlists 
+        {!props.playlists 
             ? (<ScaleLoader />)
             : ( <p> playlists</p> )
         }
       </div>
     )
   }
-}
+
 
 const mapStateToProps = state => {
     return {

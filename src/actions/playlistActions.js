@@ -37,6 +37,8 @@ export const fetchPlaylist = (userId, accessToken) => {
             return res.json()
         }).then(res => {
             dispatch(fetchPlaylistSuccess(res.items))
+            console.log(res.items);
+            
             dispatch(fetchPlaylistPending(false))
         }).catch(err => {
             dispatch(fetchPlaylistError(err))
