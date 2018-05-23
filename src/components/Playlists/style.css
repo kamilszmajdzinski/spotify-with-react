@@ -1,0 +1,25 @@
+.listPlaylist li {
+    list-style: none;
+    color: white;
+    padding: 0.5em;
+    margin: 0;
+}
+
+.listPlaylist {
+    padding: 0;
+}
+
+.listPlaylist li:hover{
+    background-color: #222326; 
+} 
+
+.playlistContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.playlistContainer p {
+    color: white;
+    margin: 1em auto;
+}

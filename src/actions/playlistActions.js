@@ -1,22 +1,20 @@
 
-export const fetchPlaylistPending = (bool) => {
+export const fetchPlaylistPending = () => {
     return {
-        type: 'FETCH_PLAYLIST__PENDING',
-        isPlaylistPending: bool
+        type: 'FETCH_PLAYLIST_PENDING'
     }
 }
 
-export const fetchPlaylistSuccess = playlists => {
+export const fetchPlaylistSuccess = (playlists) => {    
     return {
-        type: 'FETCH_PLAYLISTS_SUCCESS',
+        type: 'FETCH_PLAYLIST_SUCCESS',
         playlists
     }
 }
 
-export const fetchPlaylistError = error => {
+export const fetchPlaylistError = () => {
     return {
-        type: 'FETCH_PLAYLISTS_ERROR',
-        error
+        type: 'FETCH_PLAYLIST_ERROR'
     }
 }
 
@@ -28,7 +26,7 @@ export const fetchPlaylist = (userId, accessToken) => {
             })
         })
 
-        dispatch (fetchPlaylistPending(true))
+        dispatch (fetchPlaylistPending())
 
         fetch(request).then(res => {
             if (res.statusText === 'Unauthorized') {
@@ -36,10 +34,9 @@ export const fetchPlaylist = (userId, accessToken) => {
             }
             return res.json()
         }).then(res => {
-            dispatch(fetchPlaylistSuccess(res.items))
-            console.log(res.items);
+
             
-            dispatch(fetchPlaylistPending(false))
+            dispatch(fetchPlaylistSuccess(res.items)) 
         }).catch(err => {
             dispatch(fetchPlaylistError(err))
         })

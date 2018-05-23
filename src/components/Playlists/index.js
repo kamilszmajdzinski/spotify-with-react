@@ -5,34 +5,37 @@ import { connect } from "react-redux";
 import { ScaleLoader } from "react-spinners";
 import './style.css'
 
-const Playlists = (props) => {
-    console.log(props);
+class Playlists extends Component {
+
+renderPlaylist = playlist => {
+        return <li> {playlist.name} </li>
+}
+
+render() {
     
-    if (props.user) {
-        fetchPlaylist(props.user.id, props.token)
-    }
-         
-            
-            //fetchPlaylist(props.user.id, props.token)
-    
+    this.props.fetchPlaylist(this.props.user.id, this.props.token)
     
 
+
     return (
-      <div >
-        {!props.playlists 
+      <div className = 'playlistContainer'>
+          <p>Playlisty</p>
+        {!this.props.playlists 
             ? (<ScaleLoader />)
-            : ( <p> playlists</p> )
+            : ( <ul className='listPlaylist'> {this.props.playlists.map(playlist => this.renderPlaylist(playlist))} </ul> )
         }
       </div>
     )
   }
+}
 
 
 const mapStateToProps = state => {
     return {
-        token: state.tokenReducer.token,
-        user: state.userReducer.user,
-        playlists: state.playlistReducer.playlists
+        token: state.tokenReducer.token ? state.tokenReducer.token : '',
+        user: state.userReducer.user ? state.userReducer.user : '',
+        playlists: state.playlistReducer.playlists ? state.playlistReducer.playlists : '',
+        isPlaylistPending: state.playlistReducer.isPlaylistPending ? state.playlistReducer.isPlaylistPending : ''
     }
 }
 

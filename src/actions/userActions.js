@@ -14,7 +14,7 @@ export const fetchUserError = error => {
 
 export const fetchUserPending = bool => {
     return {
-        type: "FETCH_DATA_PENDING",
+        type: "FETCH_USER_PENDING",
         isLoading: bool
     }
 }
