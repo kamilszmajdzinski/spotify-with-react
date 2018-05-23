@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { fetchUser } from "../../actions/userActions";
 import User from "../User";
 import Search from '../Search'
+import Playlists from '../Playlists'
 import './style.css'
 
 
@@ -13,10 +14,7 @@ class Dashboard extends Component {
       this.props.fetchUser(this.props.token);
       if (this.props.userPending) {
         console.log('ładuje');
-      }  else console.log('zaladowanamo');
-      
-      
-        
+      }  else console.log('zaladowanamo');  
     }
     
   render() {
@@ -28,6 +26,7 @@ class Dashboard extends Component {
         </div>
         <div className = 'Content'>
             <div className = 'leftSideSection'>
+                <Playlists user = {this.props.user} token = {this.props.token}/>
             </div>
             <div className = 'mainSection'>
             </div>
