@@ -26,6 +26,15 @@ class Dashboard extends Component {
             <User user = {this.props.user}/>
             <Search />
         </div>
+        <div className = 'Content'>
+            <div className = 'leftSideSection'>
+            </div>
+            <div className = 'mainSection'>
+            </div>
+        </div>
+        <div className = 'Footer'>
+
+        </div>
       </div>
     )
   }
