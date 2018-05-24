@@ -1,19 +1,20 @@
 const recommendedReducer = (state = {}, action) => {
     switch (action.type) {
-        case 'RECOMMENDED_PENDING':
+        case 'FETCH_RECOMMENDED_PENDING':
             return {
                 fetchRecommendedPending: true,
                 ...state
+            
             }
         
-        case 'RECOMMENDED_ERROR':
+        case 'FETCH_RECOMMENDED_ERROR':
             return {
                 fetchRecommendedPending: false,
                 fetchRecommendedError: true,
                 ...state
             }
         
-        case 'RECOMMENDED_SUCCESS':
+        case 'FETCH_RECOMMENDED_SUCCESS':
             return {
                 fetchRecommendedPending: false,
                 fetchRecommendedError: false,

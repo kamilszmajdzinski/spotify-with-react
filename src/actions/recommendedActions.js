@@ -1,19 +1,19 @@
 export const fetchRecommendedPending = () => {
     return {
-        type: 'RECOMMENDED_PENDING'
+        type: 'FETCH_RECOMMENDED_PENDING'
     }
 }
 
 export const fetchRecommendedSuccess = recommendations => {
     return {
-        type: 'RECOMMENDED_SUCCESS',
+        type: 'FETCH_RECOMMENDED_SUCCESS',
         recommendations
     }
 }
 
 export const fetchRecommendedError = () => {
     return {
-        type: 'RECOMMENDED_ERROR'
+        type: 'FETCH_RECOMMENDED_ERROR'
     }
 }
 
@@ -28,12 +28,12 @@ export const fetchRecommendations = (accessToken) => {
         dispatch (fetchRecommendedPending())
 
         fetch(request).then(res => {
-            if (res.statusText === 'Unauthorized') {
-                window.location.href = '/'
-            }
             return res.json()
         }).then(res => {
-            dispatch(fetchRecommendedSuccess(res.items))
+            
+            dispatch(fetchRecommendedSuccess(res.albums))
+            
+            
         }).catch(err => {
             console.log(err);
             

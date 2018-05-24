@@ -4,3 +4,12 @@
     font-weight: bold;
     margin-left: 1em;
 }
+
+.recommendedContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Album {
+    flex-grow: 1;
+}

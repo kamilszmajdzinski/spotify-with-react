@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+
 import { ScaleLoader } from "react-spinners";
 import './style.css'
 
@@ -8,12 +8,8 @@ class User extends Component {
    
     render(){
         
-let IMG_URL = null;
-
-    IMG_URL = this.props.user.images["0"].url
-
-
-        console.log(this.props);
+    const IMG_URL = this.props.user.images["0"].url
+      
         
     return (
     

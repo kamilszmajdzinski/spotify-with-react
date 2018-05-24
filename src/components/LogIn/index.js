@@ -23,7 +23,6 @@ class LogIn extends Component {
       if (token) {
         this.props.setToken(token)
         this.props.fetchUser(token)
-        console.log(this.props.user);
         
       }
       

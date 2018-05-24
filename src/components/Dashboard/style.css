@@ -35,9 +35,9 @@ max-height: 6em;
     flex-grow: 1;
     background-color: #2B2D30;
     display: flex;
-    max-width: 450px;
+   
 }
 
 .mainSection{
-    flex-grow: 10;
+    flex-grow: 4;
 }
