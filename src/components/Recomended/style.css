@@ -8,8 +8,30 @@
 .recommendedContainer {
     display: flex;
     flex-wrap: wrap;
+    
 }
 
 .Album {
-    flex-grow: 1;
+    display: inline;
+}
+
+.recommendedItems {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.Album {
+    margin: 1em;
+    text-align: center;
+}
+
+.Album p {
+    color: white;
+    
+}
+
+.albumName {
+    font-weight: bold;
 }

@@ -40,4 +40,6 @@ max-height: 6em;
 
 .mainSection{
     flex-grow: 4;
+    max-width: 80%;
+    overflow: auto;
 }

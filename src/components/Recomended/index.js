@@ -15,24 +15,25 @@ const Recomended = (props) => {
 
     const renderAlbums = album => {
         let ALBUM_URL = album.images[1].url
-        console.log(album.images);
-        
+    
         return (
             <div className = 'Album'>
                 <img src = {ALBUM_URL}/>
-                <p>{album.name}</p>
+                <p className = 'albumName'>{album.name}</p>
                 <p>{album.artists[0].name}</p>
             </div>
         )
     }
 
   return (
-    <div>
-        <p className = 'recommendedHeader'> Witaj {name[0]}, oto propozycje dla Ciebie: </p>
+   
+    <div className = 'recommendedContainer'>
+     <p className = 'recommendedHeader'> Witaj {name[0]}, oto propozycje dla Ciebie: </p>
+       
       {
             props.recommendations 
             ? (
-                <div className = 'recommendedContainer'>
+                <div className='recommendedItems'>
                  {props.recommendations.items.map(album => renderAlbums(album))}
                 </div>
             )
