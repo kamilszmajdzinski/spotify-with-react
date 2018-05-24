@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { fetchUser } from "../../actions/userActions";
-
+import Recomended from "../Recomended";
 import User from "../User";
 import Search from '../Search'
 import Playlists from '../Playlists'
@@ -10,19 +7,12 @@ import './style.css'
 
 
 class Dashboard extends Component {
-    componentDidMount = (props) => {
-
-      this.props.fetchUser(this.props.token);
-      if (this.props.userPending) {
-        console.log('ładuje');
-      }  
-    }
     
   render() {
     return (
       <div className = 'Dashboard'>
         <div className = 'Header'>
-            <User user = {this.props.user}/>
+            <User />
             <Search />
         </div>
         <div className = 'Content'>
@@ -30,6 +20,7 @@ class Dashboard extends Component {
                 <Playlists />
             </div>
             <div className = 'mainSection'>
+                <Recomended />
             </div>
         </div>
         <div className = 'Footer'>
@@ -40,20 +31,4 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = state => {
-    return {
-        token: state.tokenReducer.token,
-        user: state.userReducer.user,
-        userPending: state.userReducer.userPending,
-        
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return bindActionCreators({
-        fetchUser
-    }, dispatch)
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default Dashboard

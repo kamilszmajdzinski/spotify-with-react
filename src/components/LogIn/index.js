@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { setToken } from "../../actions/tokenActions";
+import { fetchUser } from "../../actions/userActions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Redirect } from "react-router-dom";
@@ -19,12 +20,11 @@ class LogIn extends Component {
         }
         
       const token = hashParams.access_token
-      if (!token) {
-        console.log('ni ma tokena');
-        
-      } else {
-       
+      if (token) {
         this.props.setToken(token)
+        this.props.fetchUser(token)
+        console.log(this.props.user);
+        
       }
       
     }
@@ -32,7 +32,7 @@ class LogIn extends Component {
   render() {
     return (
       <div className = 'LoginContainer'>
-         {!this.props.token
+         {!this.props.user
          ?  (<div className = 'Login'>
               <p> <span className = 'SpotifyLogoSpan'> Spotify </span> with React</p>
               <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2000px-Spotify_logo_without_text.svg.png" />
@@ -48,13 +48,15 @@ class LogIn extends Component {
 
 const mapStateToProps = state => {
     return{
-      token: state.tokenReducer.token
+      token: state.tokenReducer.token,
+      user: state.userReducer.user
     }
   }
   
   const mapDispatchToProps = dispatch => {
     return bindActionCreators({
-      setToken
+      setToken,
+      fetchUser
     }, dispatch)
   }
   
